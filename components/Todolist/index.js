@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { TouchableOpacity, Text, View, TextInput } from 'react-native'
+import { TouchableOpacity, Text, View } from 'react-native'
 import { observer } from 'startupjs'
 import './index.styl'
 import TodoFilter from '../TodoFilter'

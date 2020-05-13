@@ -4,10 +4,8 @@ import { observer } from 'startupjs'
 import './index.styl'
 
 export default observer(function Navlink () {
-
   return pug`
     View.container
       Text.header Task Manager
   `
-
 })
