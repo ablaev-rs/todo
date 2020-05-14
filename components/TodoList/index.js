@@ -21,8 +21,7 @@ export default observer(function Todolist ({ tasks, edit, changeEditStatus }) {
   }
 
   return pug`
-    
-    TodoFilter(tasksFilter=tasksFilter, setTasksFilter=setTasksFilter)
+    TodoFilter(tasksFilter=tasksFilter setTasksFilter=setTasksFilter)
      
     View.taskBlock
       each todo in getTasks()
@@ -48,8 +47,6 @@ export default observer(function Todolist ({ tasks, edit, changeEditStatus }) {
               TouchableOpacity(onPress = () => changeEditStatus(todo.id, true) )
                 Text.editBtn.btn Edit
 
-              DeleteTask(taskId=todo.id)
-
-              
+              DeleteTask(taskId=todo.id)      
   `
 })

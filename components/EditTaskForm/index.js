@@ -11,8 +11,6 @@ export default observer(function EditTaskForm ({ taskId }) {
   }
 
   return pug`
-    
-    TextInput.field(value = tasks.name onChangeText = editTask )
-
+    TextInput.field(value = tasks.name onChangeText = editTask)
   `
 })

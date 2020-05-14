@@ -23,7 +23,6 @@ export default observer(function Todofilter ({ taskFilter, setTaskFilter }) {
   }
 
   return pug`
-    
     View.filter
       Text.filterText Filter:
       TouchableOpacity(onPress = setAllTaskHandler)
@@ -32,6 +31,5 @@ export default observer(function Todofilter ({ taskFilter, setTaskFilter }) {
         Text.filterText Open
       TouchableOpacity(onPress = setCloseTaskHandler)
         Text.filterText Close
-     
   `
 })
