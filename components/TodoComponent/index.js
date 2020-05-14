@@ -27,9 +27,9 @@ export default observer(function TodoComponent ({ style }) {
     View.body
       TodoForm
       TodoList(
-        tasks = tasks 
-        edit = edit
-        changeEditStatus = changeEditStatus)
+        tasks=tasks 
+        edit=edit
+        changeEditStatus=changeEditStatus)
 
   `
 })

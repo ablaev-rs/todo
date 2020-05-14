@@ -11,7 +11,7 @@ export default observer(function EditStatus ({ taskId }) {
 
   return pug`
     
-    if editStatus.status === "open"
+    if editStatus.status === 'open'
       TouchableOpacity.btn(onPress = () => changeStatus('close'))
         Text.closeBtn.btn Close
     else

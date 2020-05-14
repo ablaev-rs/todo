@@ -20,9 +20,9 @@ export default observer(function Todoform ({ addTask }) {
   return pug`
     View.container
       TextInput.field(
-        placeholder = "Enter task" 
+        placeholder = 'Enter task' 
         value = tasks.name
-        onChange = e => $tasks.set(e.target.value) )
-      Button(title="Add Task" onPress = enterTaskHandler)
+        onChangeText = e => $tasks.set(e.target.value) )
+      Button(title = 'Add Task' onPress = enterTaskHandler)
   `
 })
