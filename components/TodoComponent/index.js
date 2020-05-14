@@ -9,9 +9,9 @@ import Todoform from '../Todoform'
 import Todolist from '../Todolist'
 import { View } from 'react-native'
 
-export default observer(function TestComponent ({ style }) {
-  let [task, $task] = useQuery('taskCollection', {})
-  if (!task) throw $task.addSelf()
+export default observer(function TodoComponent ({ style }) {
+  let [tasks, $tasks] = useQuery('tasksCollection', {})
+  if (!tasks) throw $tasks.addSelf()
 
   const [edit, setEdit] = useState({
     editStatus: false,
@@ -30,7 +30,7 @@ export default observer(function TestComponent ({ style }) {
     View.body
       Todoform
       Todolist(
-        task = task 
+        tasks = tasks 
         edit = edit
         changeEditStatus = changeEditStatus)
 

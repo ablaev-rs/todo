@@ -4,16 +4,16 @@ import { observer, useValue } from 'startupjs'
 import './index.styl'
 
 export default observer(function Todoform ({ addTask }) {
-  const defaultTask = {
+  const defaultTasks = {
     name: '',
     status: 'open'
   }
 
-  let [task, $task] = useValue(defaultTask)
+  let [tasks, $tasks] = useValue(defaultTasks)
 
   function enterTaskHandler () {
-    if (task) {
-      $task.root.add('taskCollection', { name: task, status: 'open' })
+    if (tasks) {
+      $tasks.root.add('tasksCollection', { name: tasks, status: 'open' })
     }
   }
 
@@ -21,8 +21,8 @@ export default observer(function Todoform ({ addTask }) {
     View.container
       TextInput.field(
         placeholder = "Enter task" 
-        value = task.name
-        onChange = e => $task.set(e.target.value) )
+        value = tasks.name
+        onChange = e => $tasks.set(e.target.value) )
       Button(title="Add Task" onPress = enterTaskHandler)
   `
 })

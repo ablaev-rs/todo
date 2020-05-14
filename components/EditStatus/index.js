@@ -4,7 +4,7 @@ import { observer, useDoc } from 'startupjs'
 import './index.styl'
 
 export default observer(function EditStatus ({ taskId }) {
-  let [editStatus, $editStatus] = useDoc('taskCollection', taskId)
+  let [editStatus, $editStatus] = useDoc('tasksCollection', taskId)
   function changeStatus (status) {
     $editStatus.set('status', status)
   }

@@ -7,22 +7,22 @@ import EditStatus from '../EditStatus'
 import EditTaskForm from '../EditTaskForm'
 import DeleteTask from '../DeleteTask'
 
-export default observer(function Todolist ({ task, edit, changeEditStatus }) {
-  const [taskFilter, setTaskFilter] = useState({
+export default observer(function Todolist ({ tasks, edit, changeEditStatus }) {
+  const [tasksFilter, setTasksFilter] = useState({
     active: false,
     type: 'open'
   })
 
   function getTasks () {
-    if (taskFilter.active === true) {
-      return task.filter(el => el.status === taskFilter.type)
+    if (tasksFilter.active === true) {
+      return tasks.filter(el => el.status === tasksFilter.type)
     }
-    return task
+    return tasks
   }
 
   return pug`
     
-    TodoFilter(taskFilter=taskFilter, setTaskFilter=setTaskFilter)
+    TodoFilter(tasksFilter=tasksFilter, setTasksFilter=setTasksFilter)
      
     View.taskBlock
       each todo in getTasks()

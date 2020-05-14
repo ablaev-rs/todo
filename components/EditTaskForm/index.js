@@ -4,15 +4,15 @@ import { observer, useDoc } from 'startupjs'
 import './index.styl'
 
 export default observer(function EditTaskForm ({ taskId }) {
-  let [task, $task] = useDoc('taskCollection', taskId)
+  let [tasks, $tasks] = useDoc('tasksCollection', taskId)
 
   function editTask (name) {
-    $task.set('name', name)
+    $tasks.set('name', name)
   }
 
   return pug`
     
-    TextInput.field(value = task.name onChangeText = editTask )
+    TextInput.field(value = tasks.name onChangeText = editTask )
 
   `
 })
