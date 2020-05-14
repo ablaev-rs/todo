@@ -3,7 +3,7 @@ import { View, TextInput, Button } from 'react-native'
 import { observer, useValue } from 'startupjs'
 import './index.styl'
 
-export default observer(function Todoform ({ addTask }) {
+export default observer(function TodoForm ({ addTask }) {
   const defaultTasks = {
     name: '',
     status: 'open'
@@ -18,11 +18,11 @@ export default observer(function Todoform ({ addTask }) {
   }
 
   return pug`
-    View.container
+    View.root
       TextInput.field(
         placeholder = 'Enter task' 
         value = tasks.name
-        onChangeText = e => $tasks.set(e.target.value) )
+        onChange = e => $tasks.set(e.target.value) )
       Button(title = 'Add Task' onPress = enterTaskHandler)
   `
 })

@@ -3,33 +3,33 @@ import { TouchableOpacity, Text, View } from 'react-native'
 import { observer } from 'startupjs'
 import './index.styl'
 
-export default observer(function Todofilter ({ taskFilter, setTaskFilter }) {
-  function setCloseTaskHandler () {
-    setTaskFilter({
+export default observer(function TodoFilter ({ tasksFilter, setTasksFilter }) {
+  function setCloseTasksHandler () {
+    setTasksFilter({
       active: true,
       type: 'close'
     })
   }
 
-  function setOpenTaskHandler () {
-    setTaskFilter({
+  function setOpenTasksHandler () {
+    setTasksFilter({
       active: true,
       type: 'open'
     })
   }
 
-  function setAllTaskHandler () {
-    setTaskFilter({ active: false })
+  function setAllTasksHandler () {
+    setTasksFilter({ active: false })
   }
 
   return pug`
-    View.filter
+    View.root
       Text.filterText Filter:
-      TouchableOpacity(onPress = setAllTaskHandler)
+      TouchableOpacity(onPress = setAllTasksHandler)
         Text.filterText All
-      TouchableOpacity(onPress = setOpenTaskHandler)
+      TouchableOpacity(onPress = setOpenTasksHandler)
         Text.filterText Open
-      TouchableOpacity(onPress = setCloseTaskHandler)
+      TouchableOpacity(onPress = setCloseTasksHandler)
         Text.filterText Close
   `
 })

@@ -23,7 +23,7 @@ export default observer(function Todolist ({ tasks, edit, changeEditStatus }) {
   return pug`
     TodoFilter(tasksFilter=tasksFilter setTasksFilter=setTasksFilter)
      
-    View.taskBlock
+    View.root
       each todo in getTasks()
         View.tasklist
 

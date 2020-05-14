@@ -24,7 +24,7 @@ export default observer(function TodoComponent ({ style }) {
 
   return pug`
     NavLink
-    View.body
+    View.root
       TodoForm
       TodoList(
         tasks=tasks 
