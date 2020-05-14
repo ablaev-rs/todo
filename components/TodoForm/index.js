@@ -6,7 +6,7 @@ import './index.styl'
 export default observer(function TodoForm ({ addTask }) {
   const defaultTasks = {
     name: '',
-    closed: true
+    opened: true
   }
 
   let [task, $task] = useValue(defaultTasks)

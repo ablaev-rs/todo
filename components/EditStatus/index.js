@@ -7,11 +7,11 @@ export default observer(function EditStatus ({ taskId }) {
   let [editStatus, $editStatus] = useDoc('tasksCollection', taskId)
 
   function changeStatus (status) {
-    $editStatus.set('closed', status)
+    $editStatus.set('opened', status)
   }
 
   return pug`
-    if editStatus.closed
+    if editStatus.opened
       TouchableOpacity.btn(onPress = () => changeStatus(false))
         Text.closeBtn.btn Close
     else

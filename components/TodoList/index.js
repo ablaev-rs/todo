@@ -15,7 +15,7 @@ export default observer(function Todolist ({ tasks, edit, changeEditStatus }) {
 
   function getTasks () {
     if (tasksFilter.active) {
-      return tasks.filter(el => el.closed === tasksFilter.type)
+      return tasks.filter(el => el.opened === tasksFilter.type)
     }
     return tasks
   }
@@ -27,15 +27,12 @@ export default observer(function Todolist ({ tasks, edit, changeEditStatus }) {
       each todo in getTasks()
         - const todoId = todo.id 
         - const todoName = todo.name
-        - const todoClosed = todo.closed
+        - const todoOpened = todo.opened
         View.tasklist(key = todoId)
           if edit.editStatus && edit.id === todoId 
             EditTaskForm(taskId=todoId)
           else
-            if !todoClosed
-              Text.taskHeaderClose= todoName
-            else 
-              Text.taskHeader= todoName
+            Text.taskHeader(styleName = [{taskHeaderClose: !todoOpened}] )= todoName
 
           View.taskButtons
 
