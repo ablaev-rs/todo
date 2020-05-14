@@ -5,7 +5,7 @@ import './index.styl'
 
 export default observer(function Navlink () {
   return pug`
-    View.container
+    View.root
       Text.header Task Manager
   `
 })

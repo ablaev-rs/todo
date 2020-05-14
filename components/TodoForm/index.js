@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, TextInput, Button } from 'react-native'
-import { observer, useValue } from 'startupjs'
+import { observer, useValue, $root } from 'startupjs'
 import './index.styl'
 
 export default observer(function TodoForm ({ addTask }) {
@@ -13,7 +13,7 @@ export default observer(function TodoForm ({ addTask }) {
 
   function enterTaskHandler () {
     if (task) {
-      $task.root.add('tasksCollection', { name: task, status: 'open' })
+      $root.add('tasksCollection', { name: task, status: 'open' })
     }
   }
 

@@ -27,7 +27,7 @@ export default observer(function Todolist ({ tasks, edit, changeEditStatus }) {
       each todo in getTasks()
         - const todoId = todo.id 
         - const todoName = todo.name
-        View.tasklist
+        View.tasklist(key = todoId)
           if edit.editStatus && edit.id === todoId 
             EditTaskForm(taskId=todoId)
           else
