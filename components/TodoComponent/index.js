@@ -4,9 +4,9 @@ import {
   useQuery
 } from 'startupjs'
 import './index.styl'
-import Navlink from '../Navlink'
-import Todoform from '../Todoform'
-import Todolist from '../Todolist'
+import NavLink from '../NavLink'
+import TodoForm from '../TodoForm'
+import TodoList from '../TodoList'
 import { View } from 'react-native'
 
 export default observer(function TodoComponent ({ style }) {
@@ -19,17 +19,14 @@ export default observer(function TodoComponent ({ style }) {
   })
 
   function changeEditStatus (id, editStatus) {
-    setEdit({
-      editStatus: editStatus,
-      id: id
-    })
+    setEdit({ editStatus, id })
   }
 
   return pug`
-    Navlink
+    NavLink
     View.body
-      Todoform
-      Todolist(
+      TodoForm
+      TodoList(
         tasks = tasks 
         edit = edit
         changeEditStatus = changeEditStatus)
