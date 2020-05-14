@@ -25,28 +25,29 @@ export default observer(function Todolist ({ tasks, edit, changeEditStatus }) {
      
     View.root
       each todo in getTasks()
+        - const todoId = todo.id 
+        - const todoName = todo.name
         View.tasklist
-
-          if edit.editStatus && edit.id === todo.id  
-            EditTaskForm(taskId=todo.id)
+          if edit.editStatus && edit.id === todoId 
+            EditTaskForm(taskId=todoId)
           else
             if todo.status === 'close'
-              Text.taskHeaderClose= todo.name
+              Text.taskHeaderClose= todoName
             else 
-              Text.taskHeader= todo.name
+              Text.taskHeader= todoName
 
           View.taskButtons
 
-            if edit.editStatus && edit.id === todo.id
-              TouchableOpacity.btn(onPress = () => changeEditStatus(todo.id, false))
+            if edit.editStatus && edit.id === todoId
+              TouchableOpacity.btn(onPress = () => changeEditStatus(todoId, false))
                 Text.saveBtn.btn Save
             else
 
-              EditStatus(taskId=todo.id)
+              EditStatus(taskId=todoId)
 
-              TouchableOpacity(onPress = () => changeEditStatus(todo.id, true) )
+              TouchableOpacity(onPress = () => changeEditStatus(todoId, true) )
                 Text.editBtn.btn Edit
 
-              DeleteTask(taskId=todo.id)      
+              DeleteTask(taskId=todoId)      
   `
 })
