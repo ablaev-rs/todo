@@ -12,9 +12,14 @@ export default observer(function TodoForm ({ addTask }) {
   let [task, $task] = useValue(defaultTasks)
 
   function enterTaskHandler () {
+    console.log(task)
     if (task) {
-      $root.add('tasksCollection', { name: task, status: 'open' })
+      $root.add('tasksCollection', { ...task })
     }
+  }
+
+  function setTask (name) {
+    $task.set('name', name)
   }
 
   return pug`
@@ -22,7 +27,7 @@ export default observer(function TodoForm ({ addTask }) {
       TextInput.field(
         placeholder = 'Enter task' 
         value = task.name
-        onChange = e => $task.set(e.target.value) 
+        onChangeText  = setTask
       )
       Button(title = 'Add Task' onPress = enterTaskHandler)
   `
