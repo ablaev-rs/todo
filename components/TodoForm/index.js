@@ -9,11 +9,11 @@ export default observer(function TodoForm ({ addTask }) {
     status: 'open'
   }
 
-  let [tasks, $tasks] = useValue(defaultTasks)
+  let [task, $task] = useValue(defaultTasks)
 
   function enterTaskHandler () {
-    if (tasks) {
-      $tasks.root.add('tasksCollection', { name: tasks, status: 'open' })
+    if (task) {
+      $task.root.add('tasksCollection', { name: task, status: 'open' })
     }
   }
 
@@ -21,8 +21,9 @@ export default observer(function TodoForm ({ addTask }) {
     View.root
       TextInput.field(
         placeholder = 'Enter task' 
-        value = tasks.name
-        onChange = e => $tasks.set(e.target.value) )
+        value = task.name
+        onChange = e => $task.set(e.target.value) 
+      )
       Button(title = 'Add Task' onPress = enterTaskHandler)
   `
 })

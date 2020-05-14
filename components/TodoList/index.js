@@ -14,7 +14,7 @@ export default observer(function Todolist ({ tasks, edit, changeEditStatus }) {
   })
 
   function getTasks () {
-    if (tasksFilter.active === true) {
+    if (tasksFilter.active) {
       return tasks.filter(el => el.status === tasksFilter.type)
     }
     return tasks

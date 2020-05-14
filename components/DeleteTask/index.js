@@ -4,10 +4,10 @@ import { observer, useDoc } from 'startupjs'
 import './index.styl'
 
 export default observer(function DeleteTask ({ taskId }) {
-  let [delTasks, $delTasks] = useDoc('tasksCollection', taskId)
+  let [delTask, $delTask] = useDoc('tasksCollection', taskId)
 
   return pug`
-    TouchableOpacity.btn(onPress = () => $delTasks.root.del('tasksCollection.' + taskId))
+    TouchableOpacity.btn(onPress = () => $delTask.root.del('tasksCollection.' + taskId))
       Text.deleteBtn.btn Delete
   `
 })

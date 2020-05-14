@@ -29,6 +29,7 @@ export default observer(function TodoComponent ({ style }) {
       TodoList(
         tasks=tasks 
         edit=edit
-        changeEditStatus=changeEditStatus)
+        changeEditStatus=changeEditStatus
+      )
   `
 })
