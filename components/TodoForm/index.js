@@ -6,13 +6,12 @@ import './index.styl'
 export default observer(function TodoForm ({ addTask }) {
   const defaultTasks = {
     name: '',
-    status: 'open'
+    closed: true
   }
 
   let [task, $task] = useValue(defaultTasks)
 
   function enterTaskHandler () {
-    console.log(task)
     if (task) {
       $root.add('tasksCollection', { ...task })
     }

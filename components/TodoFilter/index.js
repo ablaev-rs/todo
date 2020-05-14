@@ -7,14 +7,14 @@ export default observer(function TodoFilter ({ tasksFilter, setTasksFilter }) {
   function setCloseTasksHandler () {
     setTasksFilter({
       active: true,
-      type: 'close'
+      type: false
     })
   }
 
   function setOpenTasksHandler () {
     setTasksFilter({
       active: true,
-      type: 'open'
+      type: true
     })
   }
 

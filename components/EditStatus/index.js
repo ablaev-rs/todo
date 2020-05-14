@@ -5,16 +5,17 @@ import './index.styl'
 
 export default observer(function EditStatus ({ taskId }) {
   let [editStatus, $editStatus] = useDoc('tasksCollection', taskId)
+
   function changeStatus (status) {
-    $editStatus.set('status', status)
+    $editStatus.set('closed', status)
   }
 
   return pug`
-    if editStatus.status === 'open'
-      TouchableOpacity.btn(onPress = () => changeStatus('close'))
+    if editStatus.closed
+      TouchableOpacity.btn(onPress = () => changeStatus(false))
         Text.closeBtn.btn Close
     else
-      TouchableOpacity.btn(onPress = () => changeStatus('open'))
+      TouchableOpacity.btn(onPress = () => changeStatus(true))
         Text.openBtn.btn Open
   `
 })

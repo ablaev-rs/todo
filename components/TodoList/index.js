@@ -10,12 +10,12 @@ import DeleteTask from '../DeleteTask'
 export default observer(function Todolist ({ tasks, edit, changeEditStatus }) {
   const [tasksFilter, setTasksFilter] = useState({
     active: false,
-    type: 'open'
+    type: true
   })
 
   function getTasks () {
     if (tasksFilter.active) {
-      return tasks.filter(el => el.status === tasksFilter.type)
+      return tasks.filter(el => el.closed === tasksFilter.type)
     }
     return tasks
   }
@@ -27,11 +27,12 @@ export default observer(function Todolist ({ tasks, edit, changeEditStatus }) {
       each todo in getTasks()
         - const todoId = todo.id 
         - const todoName = todo.name
+        - const todoClosed = todo.closed
         View.tasklist(key = todoId)
           if edit.editStatus && edit.id === todoId 
             EditTaskForm(taskId=todoId)
           else
-            if todo.status === 'close'
+            if !todoClosed
               Text.taskHeaderClose= todoName
             else 
               Text.taskHeader= todoName
