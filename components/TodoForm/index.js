@@ -12,8 +12,10 @@ export default observer(function TodoForm ({ addTask }) {
   let [task, $task] = useValue(defaultTasks)
 
   function enterTaskHandler () {
-    if (task) {
-      $root.add('tasksCollection', { ...task })
+    let copyTask = { ...task }
+    $task.set('name', '')
+    if (copyTask.name) {
+      $root.add('tasksCollection', copyTask)
     }
   }
 
